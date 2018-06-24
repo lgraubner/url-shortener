@@ -1,0 +1,4 @@
+GET http://{{host}}/v1/links
+Authorization: Bearer {{token}}
+
+###
