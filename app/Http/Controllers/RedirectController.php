@@ -19,7 +19,7 @@ class RedirectController extends Controller
             $click->referrer = $referrer;
         }
         $link->clicks()->save($click);
-        
+
         return redirect()->away($link->long_url, 301);
     }
 }
