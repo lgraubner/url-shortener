@@ -3,20 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Route;
 use Laravel\Passport\Client;
 
-class UserController extends Controller
+class AuthController extends Controller
 {
     /**
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    function create(Request $request)
+    public function register(Request $request)
     {
         $input = $request->only('email', 'first_name', 'last_name', 'password');
 
@@ -37,31 +37,64 @@ class UserController extends Controller
             ], 400);
         }
 
-
         User::create([
             'first_name' => $input['first_name'],
             'last_name' => $input['last_name'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
         ]);
+
         $client = Client::where('password_client', 1)->first();
 
         $request->request->add([
-            'grant_type'    => 'password',
-            'client_id'     => $client->id,
+            'grant_type' => 'password',
+            'client_id' => $client->id,
             'client_secret' => $client->secret,
-            'username'      => $input['email'],
-            'password'      => $input['password'],
-            'scope'         => null,
+            'username' => $input['email'],
+            'password' => $input['password'],
+            'scope' => null,
         ]);
 
-        // Fire off the internal request.
-        $proxy = Request::create(
-            'oauth/token',
-            'POST'
-        );
+        $proxy = Request::create('oauth/token', 'POST');
 
-        return \Route::dispatch($proxy);
+        return Route::dispatch($proxy);
+    }
+
+    /**
+     * @param Request $request
+     * @return mixed
+     */
+    public function login(Request $request)
+    {
+        $input = $request->only('username', 'password');
+
+        $client = Client::where('password_client', 1)->first();
+
+        $request->request->add([
+            'grant_type' => 'password',
+            'client_id' => $client->id,
+            'client_secret' => $client->secret,
+            'username' => $input['username'],
+            'password' => $input['password'],
+            'scope' => null
+        ]);
+
+        $proxy = Request::create('oauth/token', 'POST');
+
+        return Route::dispatch($proxy);
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function logout(Request $request)
+    {
+        $request->user('api')->token()->revoke();
+
+        return response()->json([
+            'data' => null
+        ]);
     }
 
     /**

@@ -17,8 +17,6 @@ class CreateLinksTable extends Migration
             $table->increments('id');
             $table->string('hash')->unique();
             $table->string('long_url');
-            $table->string('app_store_url');
-            $table->string('play_store_url');
             $table->string('domain');
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

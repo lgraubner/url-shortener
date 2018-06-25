@@ -13,7 +13,8 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::post('register', 'UserController@create');
+Route::post('register', 'AuthController@register');
+Route::post('login', 'AuthController@login');
 
 Route::middleware('auth:api')->group(function () {
     Route::apiResource('links', 'LinkController')->only([
@@ -24,7 +25,8 @@ Route::middleware('auth:api')->group(function () {
 
     Route::get('/links/{id}/referrers', 'MetricsController@referrers');
 
-    Route::get('/me', 'UserController@me');
+    Route::post('logout', 'AuthController@logout');
+    Route::get('me', 'AuthController@me');
 });
 
 
