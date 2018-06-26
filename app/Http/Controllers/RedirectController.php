@@ -8,7 +8,12 @@ use App\Link;
 
 class RedirectController extends Controller
 {
-    public function redirect($hash, Request $request)
+    /**
+     * @param $hash
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function __invoke($hash, Request $request)
     {
         $link = Link::where('hash', $hash)->firstOrFail();
 

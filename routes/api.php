@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,20 +11,22 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::post('register', 'AuthController@register');
-Route::post('login', 'AuthController@login');
+Route::prefix('v1')->group(function () {
+    Route::post('register', 'AuthController@register');
+    Route::post('login', 'AuthController@login');
 
-Route::middleware('auth:api')->group(function () {
-    Route::apiResource('links', 'LinkController')->only([
-        'index', 'show', 'store', 'destroy', 'update'
-    ]);
+    Route::middleware('auth:api')->group(function () {
+        Route::apiResource('links', 'LinkController')->only([
+            'index', 'show', 'store', 'destroy', 'update'
+        ]);
 
-    Route::get('/links/{id}/clicks', 'MetricsController@clicks');
+        Route::get('/links/{id}/clicks', 'MetricsController@clicks');
 
-    Route::get('/links/{id}/referrers', 'MetricsController@referrers');
+        Route::get('/links/{id}/referrers', 'MetricsController@referrers');
 
-    Route::post('logout', 'AuthController@logout');
-    Route::get('me', 'AuthController@me');
+        Route::post('logout', 'AuthController@logout');
+        Route::get('me', 'AuthController@me');
+    });
 });
 
 

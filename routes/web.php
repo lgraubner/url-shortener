@@ -11,4 +11,8 @@
 |
 */
 
-Route::get('/{hash}', 'RedirectController@redirect');
+Route::get('/', function () {
+    return redirect()->away('https://larsgraubner.com', 301);
+});
+
+Route::get('/{hash}', 'RedirectController');

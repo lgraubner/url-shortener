@@ -152,7 +152,6 @@ return [
          */
 
         Laravel\Passport\PassportServiceProvider::class,
-        Mpociot\ApiDoc\ApiDocGeneratorServiceProvider::class,
         Jenssegers\Agent\AgentServiceProvider::class,
 
         /*

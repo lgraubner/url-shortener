@@ -1,9 +1,0 @@
-POST http://{{host}}/v1/login
-Content-Type: application/json
-
-{
-    "email": "reynolds.sarah@example.net",
-    "password": "secret"
-}
-
-###
