@@ -13,11 +13,11 @@ class Link extends Model
     public $timestamps = true;
 
     protected $fillable = [
-        'domain', 'hash', 'long_url'
+        'domain', 'hash', 'long_url', 'title'
     ];
 
     protected $visible= [
-      'id', 'long_url', 'short_url', 'created_at', 'clicks'
+      'id', 'long_url', 'short_url', 'created_at', 'clicks', 'title'
     ];
 
     protected $appends = [
@@ -28,7 +28,7 @@ class Link extends Model
 
     public function getShortUrlAttribute()
     {
-        return $this->domain . $this->hash;
+        return 'https://' . $this->domain . $this->hash;
     }
 
     public function setDomainAttribute($value)
@@ -42,10 +42,16 @@ class Link extends Model
         return $this->hasMany('App\Click');
     }
 
-    protected static function boot()
+    public function scopeUser($query)
     {
-        parent::boot();
+        $user = Auth::user();
 
-        static::addGlobalScope(new UserScope());
+        return $query->where('user_id', $user->id);
+    }
+
+    public function scopeDomain($query)
+    {
+        $domain = host(request()->root());
+        return $query->where('domain', $domain);
     }
 }

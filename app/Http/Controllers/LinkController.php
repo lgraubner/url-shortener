@@ -24,7 +24,7 @@ class LinkController extends Controller
      * @return LinkResource
      */
     public function show($id) {
-        $link = Link::findOrFail($id);
+        $link = Link::user()->findOrFail($id);
         return new LinkResource($link);
     }
 
@@ -58,7 +58,9 @@ class LinkController extends Controller
 
         // @TODO: check if hash doesn't exist
 
-        $link->domain = $request->input('domain', env('APP_URL'));
+        $domain = $request->input('domain', env('DEFAULT_SHORT_URL'));
+
+        $link->domain = host($domain);
         $link->hash = $request->input('hash', Base62::encode($next_id));
         $link->long_url = $request->input('long_url');
 
@@ -73,7 +75,7 @@ class LinkController extends Controller
      * @return LinkResource|\Illuminate\Http\JsonResponse
      */
     public function update($id, Request $request) {
-        $link = Link::findOrFail($id);
+        $link = Link::user()->findOrFail($id);
 
         $input = $request->all();
 
@@ -104,7 +106,7 @@ class LinkController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function destroy($id) {
-        Link::findOrFail($id)->delete();
+        Link::user()->findOrFail($id)->delete();
 
         return response()->json([
             'data' => null
