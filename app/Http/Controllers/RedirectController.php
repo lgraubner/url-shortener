@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Click;
 use Illuminate\Http\Request;
-use App\Link;
+use App\Models\Click;
+use App\Models\Link;
 
 class RedirectController extends Controller
 {
@@ -25,6 +25,12 @@ class RedirectController extends Controller
         }
         $link->clicks()->save($click);
 
-        return redirect()->away($link->long_url, 301);
+        if ($link->is_safe) {
+            return redirect()->away($link->long_url, 301);
+        }
+
+        return view('unsafe', [
+            'url' => $link->long_url
+        ]);
     }
 }

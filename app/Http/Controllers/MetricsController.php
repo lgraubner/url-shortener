@@ -2,11 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Link;
+use App\Models\Link;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use App\Click;
 
 class MetricsController extends Controller
 {

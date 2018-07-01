@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -26,9 +26,13 @@ class Link extends Model
 
     protected $dates = ['deleted_at'];
 
+    protected $casts = [
+        'is_safe' => 'boolean'
+    ];
+
     public function getShortUrlAttribute()
     {
-        return 'https://' . $this->domain . $this->hash;
+        return 'https://' . $this->domain . '/' . $this->hash;
     }
 
     public function setDomainAttribute($value)
@@ -39,7 +43,7 @@ class Link extends Model
 
     public function clicks()
     {
-        return $this->hasMany('App\Click');
+        return $this->hasMany('App\Models\Click');
     }
 
     public function scopeUser($query)

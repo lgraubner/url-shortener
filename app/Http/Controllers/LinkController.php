@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\CheckUrl;
+use App\Jobs\CrawlPage;
 use Illuminate\Http\Request;
-use App\Link;
+use App\Models\Link;
 use App\Http\Resources\Link as LinkResource;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -34,7 +36,6 @@ class LinkController extends Controller
      */
     public function store(Request $request) {
         $validator = Validator::make($request->all(), [
-            'hash' => 'unique:links|max:20',
             'long_url' => 'required|url'
         ]);
 
@@ -55,16 +56,20 @@ class LinkController extends Controller
         $link = new Link;
 
         $next_id = DB::table('links')->max('id') + 1;
-
-        // @TODO: check if hash doesn't exist
-
-        $domain = $request->input('domain', env('DEFAULT_SHORT_URL'));
-
-        $link->domain = host($domain);
-        $link->hash = $request->input('hash', Base62::encode($next_id));
+        
+        $link->domain = host(env('DEFAULT_SHORT_URL'));
+        $link->hash = Base62::encode($next_id);
         $link->long_url = $request->input('long_url');
 
         $user->links()->save($link);
+
+        if (env('SAFE_CHECK')) {
+            CheckUrl::dispatch($link);
+        }
+
+        if (env('CRAWL_PAGES')) {
+            CrawlPage::dispatch($link);
+        }
 
         return new LinkResource($link);
     }

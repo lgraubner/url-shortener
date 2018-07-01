@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Carbon;
+use App\Models\Link;
+use App\Models\User;
 
 class UsersTableSeeder extends Seeder
 {
@@ -13,9 +13,9 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\User::class, 3)->create()->each(function ($u) {
-            $u->links()->save(factory(App\Link::class)->make());
-            $u->links()->save(factory(App\Link::class)->make());
+        factory(User::class, 3)->create()->each(function ($u) {
+            $u->links()->save(factory(Link::class)->make());
+            $u->links()->save(factory(Link::class)->make());
         });
     }
 }

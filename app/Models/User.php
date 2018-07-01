@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
@@ -20,6 +20,6 @@ class User extends Authenticatable
 
     public function links()
     {
-        return $this->hasMany('App\Link');
+        return $this->hasMany('App\Models\Link');
     }
 }
