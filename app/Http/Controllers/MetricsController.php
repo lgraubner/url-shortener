@@ -13,7 +13,7 @@ class MetricsController extends Controller
      */
     public function clicks($id)
     {
-        $link = Link::user()->findOrFail($id);
+        $link = Link::fromUser()->findOrFail($id);
 
         $total = $link->clicks->count();
 
@@ -44,7 +44,7 @@ class MetricsController extends Controller
      */
     public function referrers($id)
     {
-        $link = Link::user()->findOrFail($id);
+        $link = Link::fromUser()->findOrFail($id);
 
         $clicks = $link->clicks->groupBy('referrer')->map(function ($item, $key) {
             return [

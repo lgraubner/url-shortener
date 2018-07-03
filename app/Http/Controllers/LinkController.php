@@ -26,7 +26,7 @@ class LinkController extends Controller
      * @return LinkResource
      */
     public function show($id) {
-        $link = Link::user()->findOrFail($id);
+        $link = Link::fromUser()->findOrFail($id);
         return new LinkResource($link);
     }
 
@@ -56,7 +56,7 @@ class LinkController extends Controller
         $link = new Link;
 
         $next_id = DB::table('links')->max('id') + 1;
-        
+
         $link->domain = host(env('DEFAULT_SHORT_URL'));
         $link->hash = Base62::encode($next_id);
         $link->long_url = $request->input('long_url');
@@ -80,7 +80,7 @@ class LinkController extends Controller
      * @return LinkResource|\Illuminate\Http\JsonResponse
      */
     public function update($id, Request $request) {
-        $link = Link::user()->findOrFail($id);
+        $link = Link::fromUser()->findOrFail($id);
 
         $input = $request->all();
 
@@ -111,7 +111,7 @@ class LinkController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function destroy($id) {
-        Link::user()->findOrFail($id)->delete();
+        Link::fromUser()->findOrFail($id)->delete();
 
         return response()->json([
             'data' => null

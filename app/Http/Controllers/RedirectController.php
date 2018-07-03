@@ -15,7 +15,7 @@ class RedirectController extends Controller
      */
     public function __invoke($hash, Request $request)
     {
-        $link = Link::domain()->where('hash', $hash)->firstOrFail();
+        $link = Link::withCurrentDomain()->where('hash', $hash)->firstOrFail();
 
         $click = new Click;
         $referrer = $request->headers->get('referer');

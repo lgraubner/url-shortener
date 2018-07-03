@@ -24,6 +24,8 @@ Route::prefix('v1')->group(function () {
 
         Route::get('/links/{id}/referrers', 'MetricsController@referrers');
 
+        Route::get('/links/{id}/info', 'LinkInfoController');
+
         Route::post('logout', 'AuthController@logout');
         Route::get('me', 'AuthController@me');
     });

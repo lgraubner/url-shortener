@@ -3,8 +3,10 @@
 namespace App\Jobs;
 
 use App\Models\Link;
-use App\Models\Page;
+use App\Models\LinkInfo;
+use Carbon\Carbon;
 use GuzzleHttp\Client;
+use GuzzleHttp\TransferStats;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
@@ -38,14 +40,26 @@ class CrawlPage implements ShouldQueue
      */
     public function handle()
     {
-        $client = new Client();
+        $client = new Client([
+            'allow_redirects' => true,
+        ]);
+
+        $info = new LinkInfo;
 
         try {
-            $response = $client->get($this->link->long_url);
+            $response = $client->get($this->link->long_url, [
+                'on_stats' => function (TransferStats $stats) use ($info) {
+                    $info->url_fetched = $stats->getEffectiveUri();
+                }
+            ]);
 
-            $page = new Page;
+            $info->domain = host($this->link->long_url);
+            $info->url = $this->link->long_url;
 
-            if ($response->getStatusCode() === 200) {
+            $http_status = $response->getStatusCode();
+            $info->http_status = $http_status;
+
+            if ($http_status === 200) {
                 $content = $response->getBody()->getContents();
                 $crawler = new Crawler($content);
 
@@ -53,11 +67,16 @@ class CrawlPage implements ShouldQueue
 
                 $this->link->title = $title;
                 $this->link->save();
+
+                $info->html_title = $title;
+
+                $info->content_length = $response->getHeader('Content-Length')[0];
+                $info->content_type = $response->getHeader('Content-Type')[0];
             }
 
-            // $this->link->save($page);
+            $this->link->info()->save($info);
         } catch (\Exception $e) {
-            //
+            throw $e;
         }
 
     }

@@ -10,7 +10,7 @@ class DetailsController extends Controller
 {
     public function __invoke($hash, Request $request)
     {
-        $link = Link::domain()->where('hash', $hash)->firstOrFail();
+        $link = Link::withCurrentDomain()->where('hash', $hash)->firstOrFail();
 
         // @TODO: group data
         $clicks = $link->clicks()->where('created_at', '>=', Carbon::today()->subDays(21)->toDateString())->get();

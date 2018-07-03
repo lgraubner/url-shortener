@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Scopes\UserScope;
+use Illuminate\Support\Facades\Auth;
 
 class Link extends Model
 {
@@ -16,7 +17,7 @@ class Link extends Model
         'domain', 'hash', 'long_url', 'title'
     ];
 
-    protected $visible= [
+    protected $visible = [
       'id', 'long_url', 'short_url', 'created_at', 'clicks', 'title'
     ];
 
@@ -46,14 +47,19 @@ class Link extends Model
         return $this->hasMany('App\Models\Click');
     }
 
-    public function scopeUser($query)
+    public function info()
+    {
+        return $this->hasOne('App\Models\LinkInfo');
+    }
+
+    public function scopeFromUser($query)
     {
         $user = Auth::user();
 
         return $query->where('user_id', $user->id);
     }
 
-    public function scopeDomain($query)
+    public function scopeWithCurrentDomain($query)
     {
         $domain = host(request()->root());
         return $query->where('domain', $domain);
