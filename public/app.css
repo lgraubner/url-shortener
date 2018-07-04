@@ -647,9 +647,9 @@ table {
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1340px) {
   .container {
-    max-width: 1200px;
+    max-width: 1340px;
   }
 }
 
@@ -793,6 +793,10 @@ table {
 
 .bg-orange-lightest {
   background-color: #fff5eb;
+}
+
+.bg-orange-lg {
+  background-color: #fa8231;
 }
 
 .bg-yellow-darkest {
@@ -1087,6 +1091,10 @@ table {
   background-color: #fff5eb;
 }
 
+.hover\:bg-orange-lg:hover {
+  background-color: #fa8231;
+}
+
 .hover\:bg-yellow-darkest:hover {
   background-color: #453411;
 }
@@ -1377,6 +1385,10 @@ table {
 
 .focus\:bg-orange-lightest:focus {
   background-color: #fff5eb;
+}
+
+.focus\:bg-orange-lg:focus {
+  background-color: #fa8231;
 }
 
 .focus\:bg-yellow-darkest:focus {
@@ -1743,6 +1755,10 @@ table {
   border-color: #fff5eb;
 }
 
+.border-orange-lg {
+  border-color: #fa8231;
+}
+
 .border-yellow-darkest {
   border-color: #453411;
 }
@@ -2035,6 +2051,10 @@ table {
   border-color: #fff5eb;
 }
 
+.hover\:border-orange-lg:hover {
+  border-color: #fa8231;
+}
+
 .hover\:border-yellow-darkest:hover {
   border-color: #453411;
 }
@@ -2325,6 +2345,10 @@ table {
 
 .focus\:border-orange-lightest:focus {
   border-color: #fff5eb;
+}
+
+.focus\:border-orange-lg:focus {
+  border-color: #fa8231;
 }
 
 .focus\:border-yellow-darkest:focus {
@@ -3058,6 +3082,10 @@ table {
 }
 
 .font-sans {
+  font-family: Roboto, sans-serif;
+}
+
+.font-system {
   font-family: system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
@@ -3762,7 +3790,7 @@ table {
 }
 
 .max-w-md {
-  max-width: 40rem;
+  max-width: 34rem;
 }
 
 .max-w-lg {
@@ -3787,6 +3815,10 @@ table {
 
 .max-w-5xl {
   max-width: 100rem;
+}
+
+.max-w-spacing {
+  max-width: 90%;
 }
 
 .max-w-full {
@@ -5073,6 +5105,10 @@ table {
   color: #fff5eb;
 }
 
+.text-orange-lg {
+  color: #fa8231;
+}
+
 .text-yellow-darkest {
   color: #453411;
 }
@@ -5363,6 +5399,10 @@ table {
 
 .hover\:text-orange-lightest:hover {
   color: #fff5eb;
+}
+
+.hover\:text-orange-lg:hover {
+  color: #fa8231;
 }
 
 .hover\:text-yellow-darkest:hover {
@@ -5657,6 +5697,10 @@ table {
   color: #fff5eb;
 }
 
+.focus\:text-orange-lg:focus {
+  color: #fa8231;
+}
+
 .focus\:text-yellow-darkest:focus {
   color: #453411;
 }
@@ -5870,7 +5914,7 @@ table {
 }
 
 .text-xl {
-  font-size: 1.25rem;
+  font-size: 1.3125rem;
 }
 
 .text-2xl {
@@ -5882,11 +5926,11 @@ table {
 }
 
 .text-4xl {
-  font-size: 2.25rem;
+  font-size: 3.75rem;
 }
 
 .text-5xl {
-  font-size: 3rem;
+  font-size: 5rem;
 }
 
 .italic {
@@ -6390,6 +6434,10 @@ table {
     background-color: #fff5eb;
   }
 
+  .sm\:bg-orange-lg {
+    background-color: #fa8231;
+  }
+
   .sm\:bg-yellow-darkest {
     background-color: #453411;
   }
@@ -6682,6 +6730,10 @@ table {
     background-color: #fff5eb;
   }
 
+  .sm\:hover\:bg-orange-lg:hover {
+    background-color: #fa8231;
+  }
+
   .sm\:hover\:bg-yellow-darkest:hover {
     background-color: #453411;
   }
@@ -6972,6 +7024,10 @@ table {
 
   .sm\:focus\:bg-orange-lightest:focus {
     background-color: #fff5eb;
+  }
+
+  .sm\:focus\:bg-orange-lg:focus {
+    background-color: #fa8231;
   }
 
   .sm\:focus\:bg-yellow-darkest:focus {
@@ -7330,6 +7386,10 @@ table {
     border-color: #fff5eb;
   }
 
+  .sm\:border-orange-lg {
+    border-color: #fa8231;
+  }
+
   .sm\:border-yellow-darkest {
     border-color: #453411;
   }
@@ -7622,6 +7682,10 @@ table {
     border-color: #fff5eb;
   }
 
+  .sm\:hover\:border-orange-lg:hover {
+    border-color: #fa8231;
+  }
+
   .sm\:hover\:border-yellow-darkest:hover {
     border-color: #453411;
   }
@@ -7912,6 +7976,10 @@ table {
 
   .sm\:focus\:border-orange-lightest:focus {
     border-color: #fff5eb;
+  }
+
+  .sm\:focus\:border-orange-lg:focus {
+    border-color: #fa8231;
   }
 
   .sm\:focus\:border-yellow-darkest:focus {
@@ -8645,6 +8713,10 @@ table {
   }
 
   .sm\:font-sans {
+    font-family: Roboto, sans-serif;
+  }
+
+  .sm\:font-system {
     font-family: system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   }
 
@@ -9349,7 +9421,7 @@ table {
   }
 
   .sm\:max-w-md {
-    max-width: 40rem;
+    max-width: 34rem;
   }
 
   .sm\:max-w-lg {
@@ -9374,6 +9446,10 @@ table {
 
   .sm\:max-w-5xl {
     max-width: 100rem;
+  }
+
+  .sm\:max-w-spacing {
+    max-width: 90%;
   }
 
   .sm\:max-w-full {
@@ -10644,6 +10720,10 @@ table {
     color: #fff5eb;
   }
 
+  .sm\:text-orange-lg {
+    color: #fa8231;
+  }
+
   .sm\:text-yellow-darkest {
     color: #453411;
   }
@@ -10934,6 +11014,10 @@ table {
 
   .sm\:hover\:text-orange-lightest:hover {
     color: #fff5eb;
+  }
+
+  .sm\:hover\:text-orange-lg:hover {
+    color: #fa8231;
   }
 
   .sm\:hover\:text-yellow-darkest:hover {
@@ -11228,6 +11312,10 @@ table {
     color: #fff5eb;
   }
 
+  .sm\:focus\:text-orange-lg:focus {
+    color: #fa8231;
+  }
+
   .sm\:focus\:text-yellow-darkest:focus {
     color: #453411;
   }
@@ -11441,7 +11529,7 @@ table {
   }
 
   .sm\:text-xl {
-    font-size: 1.25rem;
+    font-size: 1.3125rem;
   }
 
   .sm\:text-2xl {
@@ -11453,11 +11541,11 @@ table {
   }
 
   .sm\:text-4xl {
-    font-size: 2.25rem;
+    font-size: 3.75rem;
   }
 
   .sm\:text-5xl {
-    font-size: 3rem;
+    font-size: 5rem;
   }
 
   .sm\:italic {
@@ -11947,6 +12035,10 @@ table {
     background-color: #fff5eb;
   }
 
+  .md\:bg-orange-lg {
+    background-color: #fa8231;
+  }
+
   .md\:bg-yellow-darkest {
     background-color: #453411;
   }
@@ -12239,6 +12331,10 @@ table {
     background-color: #fff5eb;
   }
 
+  .md\:hover\:bg-orange-lg:hover {
+    background-color: #fa8231;
+  }
+
   .md\:hover\:bg-yellow-darkest:hover {
     background-color: #453411;
   }
@@ -12529,6 +12625,10 @@ table {
 
   .md\:focus\:bg-orange-lightest:focus {
     background-color: #fff5eb;
+  }
+
+  .md\:focus\:bg-orange-lg:focus {
+    background-color: #fa8231;
   }
 
   .md\:focus\:bg-yellow-darkest:focus {
@@ -12887,6 +12987,10 @@ table {
     border-color: #fff5eb;
   }
 
+  .md\:border-orange-lg {
+    border-color: #fa8231;
+  }
+
   .md\:border-yellow-darkest {
     border-color: #453411;
   }
@@ -13179,6 +13283,10 @@ table {
     border-color: #fff5eb;
   }
 
+  .md\:hover\:border-orange-lg:hover {
+    border-color: #fa8231;
+  }
+
   .md\:hover\:border-yellow-darkest:hover {
     border-color: #453411;
   }
@@ -13469,6 +13577,10 @@ table {
 
   .md\:focus\:border-orange-lightest:focus {
     border-color: #fff5eb;
+  }
+
+  .md\:focus\:border-orange-lg:focus {
+    border-color: #fa8231;
   }
 
   .md\:focus\:border-yellow-darkest:focus {
@@ -14202,6 +14314,10 @@ table {
   }
 
   .md\:font-sans {
+    font-family: Roboto, sans-serif;
+  }
+
+  .md\:font-system {
     font-family: system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   }
 
@@ -14906,7 +15022,7 @@ table {
   }
 
   .md\:max-w-md {
-    max-width: 40rem;
+    max-width: 34rem;
   }
 
   .md\:max-w-lg {
@@ -14931,6 +15047,10 @@ table {
 
   .md\:max-w-5xl {
     max-width: 100rem;
+  }
+
+  .md\:max-w-spacing {
+    max-width: 90%;
   }
 
   .md\:max-w-full {
@@ -16201,6 +16321,10 @@ table {
     color: #fff5eb;
   }
 
+  .md\:text-orange-lg {
+    color: #fa8231;
+  }
+
   .md\:text-yellow-darkest {
     color: #453411;
   }
@@ -16491,6 +16615,10 @@ table {
 
   .md\:hover\:text-orange-lightest:hover {
     color: #fff5eb;
+  }
+
+  .md\:hover\:text-orange-lg:hover {
+    color: #fa8231;
   }
 
   .md\:hover\:text-yellow-darkest:hover {
@@ -16785,6 +16913,10 @@ table {
     color: #fff5eb;
   }
 
+  .md\:focus\:text-orange-lg:focus {
+    color: #fa8231;
+  }
+
   .md\:focus\:text-yellow-darkest:focus {
     color: #453411;
   }
@@ -16998,7 +17130,7 @@ table {
   }
 
   .md\:text-xl {
-    font-size: 1.25rem;
+    font-size: 1.3125rem;
   }
 
   .md\:text-2xl {
@@ -17010,11 +17142,11 @@ table {
   }
 
   .md\:text-4xl {
-    font-size: 2.25rem;
+    font-size: 3.75rem;
   }
 
   .md\:text-5xl {
-    font-size: 3rem;
+    font-size: 5rem;
   }
 
   .md\:italic {
@@ -17504,6 +17636,10 @@ table {
     background-color: #fff5eb;
   }
 
+  .lg\:bg-orange-lg {
+    background-color: #fa8231;
+  }
+
   .lg\:bg-yellow-darkest {
     background-color: #453411;
   }
@@ -17796,6 +17932,10 @@ table {
     background-color: #fff5eb;
   }
 
+  .lg\:hover\:bg-orange-lg:hover {
+    background-color: #fa8231;
+  }
+
   .lg\:hover\:bg-yellow-darkest:hover {
     background-color: #453411;
   }
@@ -18086,6 +18226,10 @@ table {
 
   .lg\:focus\:bg-orange-lightest:focus {
     background-color: #fff5eb;
+  }
+
+  .lg\:focus\:bg-orange-lg:focus {
+    background-color: #fa8231;
   }
 
   .lg\:focus\:bg-yellow-darkest:focus {
@@ -18444,6 +18588,10 @@ table {
     border-color: #fff5eb;
   }
 
+  .lg\:border-orange-lg {
+    border-color: #fa8231;
+  }
+
   .lg\:border-yellow-darkest {
     border-color: #453411;
   }
@@ -18736,6 +18884,10 @@ table {
     border-color: #fff5eb;
   }
 
+  .lg\:hover\:border-orange-lg:hover {
+    border-color: #fa8231;
+  }
+
   .lg\:hover\:border-yellow-darkest:hover {
     border-color: #453411;
   }
@@ -19026,6 +19178,10 @@ table {
 
   .lg\:focus\:border-orange-lightest:focus {
     border-color: #fff5eb;
+  }
+
+  .lg\:focus\:border-orange-lg:focus {
+    border-color: #fa8231;
   }
 
   .lg\:focus\:border-yellow-darkest:focus {
@@ -19759,6 +19915,10 @@ table {
   }
 
   .lg\:font-sans {
+    font-family: Roboto, sans-serif;
+  }
+
+  .lg\:font-system {
     font-family: system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   }
 
@@ -20463,7 +20623,7 @@ table {
   }
 
   .lg\:max-w-md {
-    max-width: 40rem;
+    max-width: 34rem;
   }
 
   .lg\:max-w-lg {
@@ -20488,6 +20648,10 @@ table {
 
   .lg\:max-w-5xl {
     max-width: 100rem;
+  }
+
+  .lg\:max-w-spacing {
+    max-width: 90%;
   }
 
   .lg\:max-w-full {
@@ -21758,6 +21922,10 @@ table {
     color: #fff5eb;
   }
 
+  .lg\:text-orange-lg {
+    color: #fa8231;
+  }
+
   .lg\:text-yellow-darkest {
     color: #453411;
   }
@@ -22048,6 +22216,10 @@ table {
 
   .lg\:hover\:text-orange-lightest:hover {
     color: #fff5eb;
+  }
+
+  .lg\:hover\:text-orange-lg:hover {
+    color: #fa8231;
   }
 
   .lg\:hover\:text-yellow-darkest:hover {
@@ -22342,6 +22514,10 @@ table {
     color: #fff5eb;
   }
 
+  .lg\:focus\:text-orange-lg:focus {
+    color: #fa8231;
+  }
+
   .lg\:focus\:text-yellow-darkest:focus {
     color: #453411;
   }
@@ -22555,7 +22731,7 @@ table {
   }
 
   .lg\:text-xl {
-    font-size: 1.25rem;
+    font-size: 1.3125rem;
   }
 
   .lg\:text-2xl {
@@ -22567,11 +22743,11 @@ table {
   }
 
   .lg\:text-4xl {
-    font-size: 2.25rem;
+    font-size: 3.75rem;
   }
 
   .lg\:text-5xl {
-    font-size: 3rem;
+    font-size: 5rem;
   }
 
   .lg\:italic {
@@ -22943,7 +23119,7 @@ table {
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1340px) {
   .xl\:list-reset {
     list-style: none;
     padding: 0;
@@ -23059,6 +23235,10 @@ table {
 
   .xl\:bg-orange-lightest {
     background-color: #fff5eb;
+  }
+
+  .xl\:bg-orange-lg {
+    background-color: #fa8231;
   }
 
   .xl\:bg-yellow-darkest {
@@ -23353,6 +23533,10 @@ table {
     background-color: #fff5eb;
   }
 
+  .xl\:hover\:bg-orange-lg:hover {
+    background-color: #fa8231;
+  }
+
   .xl\:hover\:bg-yellow-darkest:hover {
     background-color: #453411;
   }
@@ -23643,6 +23827,10 @@ table {
 
   .xl\:focus\:bg-orange-lightest:focus {
     background-color: #fff5eb;
+  }
+
+  .xl\:focus\:bg-orange-lg:focus {
+    background-color: #fa8231;
   }
 
   .xl\:focus\:bg-yellow-darkest:focus {
@@ -24001,6 +24189,10 @@ table {
     border-color: #fff5eb;
   }
 
+  .xl\:border-orange-lg {
+    border-color: #fa8231;
+  }
+
   .xl\:border-yellow-darkest {
     border-color: #453411;
   }
@@ -24293,6 +24485,10 @@ table {
     border-color: #fff5eb;
   }
 
+  .xl\:hover\:border-orange-lg:hover {
+    border-color: #fa8231;
+  }
+
   .xl\:hover\:border-yellow-darkest:hover {
     border-color: #453411;
   }
@@ -24583,6 +24779,10 @@ table {
 
   .xl\:focus\:border-orange-lightest:focus {
     border-color: #fff5eb;
+  }
+
+  .xl\:focus\:border-orange-lg:focus {
+    border-color: #fa8231;
   }
 
   .xl\:focus\:border-yellow-darkest:focus {
@@ -25316,6 +25516,10 @@ table {
   }
 
   .xl\:font-sans {
+    font-family: Roboto, sans-serif;
+  }
+
+  .xl\:font-system {
     font-family: system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   }
 
@@ -26020,7 +26224,7 @@ table {
   }
 
   .xl\:max-w-md {
-    max-width: 40rem;
+    max-width: 34rem;
   }
 
   .xl\:max-w-lg {
@@ -26045,6 +26249,10 @@ table {
 
   .xl\:max-w-5xl {
     max-width: 100rem;
+  }
+
+  .xl\:max-w-spacing {
+    max-width: 90%;
   }
 
   .xl\:max-w-full {
@@ -27315,6 +27523,10 @@ table {
     color: #fff5eb;
   }
 
+  .xl\:text-orange-lg {
+    color: #fa8231;
+  }
+
   .xl\:text-yellow-darkest {
     color: #453411;
   }
@@ -27605,6 +27817,10 @@ table {
 
   .xl\:hover\:text-orange-lightest:hover {
     color: #fff5eb;
+  }
+
+  .xl\:hover\:text-orange-lg:hover {
+    color: #fa8231;
   }
 
   .xl\:hover\:text-yellow-darkest:hover {
@@ -27899,6 +28115,10 @@ table {
     color: #fff5eb;
   }
 
+  .xl\:focus\:text-orange-lg:focus {
+    color: #fa8231;
+  }
+
   .xl\:focus\:text-yellow-darkest:focus {
     color: #453411;
   }
@@ -28112,7 +28332,7 @@ table {
   }
 
   .xl\:text-xl {
-    font-size: 1.25rem;
+    font-size: 1.3125rem;
   }
 
   .xl\:text-2xl {
@@ -28124,11 +28344,11 @@ table {
   }
 
   .xl\:text-4xl {
-    font-size: 2.25rem;
+    font-size: 3.75rem;
   }
 
   .xl\:text-5xl {
-    font-size: 3rem;
+    font-size: 5rem;
   }
 
   .xl\:italic {

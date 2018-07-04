@@ -12,8 +12,18 @@ class DetailsController extends Controller
     {
         $link = Link::withCurrentDomain()->where('hash', $hash)->firstOrFail();
 
-        // @TODO: group data
-        $clicks = $link->clicks()->where('created_at', '>=', Carbon::today()->subDays(21)->toDateString())->get();
+        $clicks = $link->clicks()->where('created_at', '>=', Carbon::today()->subDays(21)->toDateString())
+            ->get()->groupBy(function ($date) {
+            return Carbon::parse($date->created_at)->format('d-m-Y');
+        })->map(function ($item, $key) {
+            return [
+                'clicks' => collect($item)->count(),
+                'value' => $key ?: 'direct',
+            ];
+        })->reduce(function ($carry, $item) {
+            array_push($carry, $item);
+            return $carry;
+        }, []);
 
         return view('details', [
             'long_url' => $link->long_url,

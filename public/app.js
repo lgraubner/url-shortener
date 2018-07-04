@@ -1,21 +1,40 @@
 (function () {
     const line = d3.line()
         .x((d, i) => xScale(i))
-        .y((d) => yScale(d.y))
+        .y((d) => yScale(d.clicks))
         .curve(d3.curveMonotoneX);
 
     const height = 180;
-    const width = 540;
-    const n = 21;
-
-    const data = d3.range(n).map(d => ({
+    const width = 544;
+    /* const data = d3.range(n).map(d => ({
         y: d3.randomUniform(1)(),
         x: d
+    })); */
+    let data = __lgim_clicks;
+
+    data.push({
+        clicks: 3,
+        value: '05-07-2018'
+    });
+
+    data.push({
+        clicks: 1,
+        value: '06-07-2018'
+    });
+
+    data = data.map((c, index) => ({
+        clicks: c.clicks,
+        value: index
     }));
 
+    const max = data.reduce((m, c) => Math.max(m, c.clicks), 0);
+    console.log(max);
+
+    const n = data.length;
+
     const startData = data.map(d => ({
-        x: d.x,
-        y: 0
+        value: d.value,
+        clicks: 0
     }));
 
     const xScale = d3.scaleLinear()
@@ -23,14 +42,14 @@
         .range([0, width]);
 
     const yScale = d3.scaleLinear()
-        .domain([0, 1])
+        .domain([0, max])
         .range([height, 0]);
 
     const areaGenerator = d3.area();
     const area = areaGenerator
-        .x(d => xScale(d.x))
+        .x(d => xScale(d.value))
         .y0(height)
-        .y1(d => yScale(d.y))
+        .y1(d => yScale(d.clicks))
         .curve(d3.curveMonotoneX);
 
     const svg = d3.select('#chart')

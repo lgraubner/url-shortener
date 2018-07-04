@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tailwind build resources/assets/main.css -o public/app.css"
+    "build": "tailwind build resources/assets/main.css -o public/app.css -c tailwind.js"
   },
   "repository": {
     "type": "git",

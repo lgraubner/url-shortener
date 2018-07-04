@@ -13,37 +13,35 @@
 
         @show
     </head>
-    <body>
-        <div class="wrapper">
-            <header class="header">
-                <a href="/" class="page-title">lg.im</a>
+    <body class="bg-grey-lightest antialiased font-sans text-grey-darker leading-tight">
+        <div class="max-w-spacing xl:max-w-3xl mx-auto">
+            <header class="header mt-5 flex justify-between items-center">
+                <a href="/" class="page-title text-grey-darker font-bold text-3xl no-underline">lg.im</a>
                 @section('navigation')
                 <nav class="nav">
-                    <ul>
-                        <li>
-                            <a href="/login">Login</a>
+                    <ul class="list-reset">
+                        <li class="inline">
+                            <a href="/login" class="no-underline rounded border-2 py-2 px-3 text-grey border-grey font-bold">Login</a>
                         </li>
-                        <li>
-                            <a class="signup" href="/signup">Sign up</a>
+                        <li class="inline ml-5">
+                            <a class="no-underline rounded border-2 py-2 px-3 text-white bg-grey border-grey font-bold" href="/signup">Sign up</a>
                         </li>
                     </ul>
                 </nav>
                 @show
             </header>
             <main class="content">
-                <div class="container">
-                    @yield('content')
-                </div>
+                @yield('content')
             </main>
             <footer class="footer">
                 @section('footer-navigation')
-                    <nav class="footer-nav">
-                        <ul>
-                            <li>
-                                <a href="/legal">Legal Notice</a>
+                    <nav class="footer-nav mb-5 text-center text-sm">
+                        <ul class="list-reset">
+                            <li class="inline mx-5">
+                                <a href="/legal" class="no-underline text-grey-dark font-semibold">Legal Notice</a>
                             </li>
-                            <li>
-                                <a href="/privacy">Privacy</a>
+                            <li class="inline mx-5">
+                                <a href="/privacy" class="no-underline text-grey-dark font-semibold">Privacy</a>
                             </li>
                         </ul>
                     </nav>

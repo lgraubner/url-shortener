@@ -71,6 +71,7 @@ let colors = {
   'orange-light': '#faad63',
   'orange-lighter': '#fcd9b6',
   'orange-lightest': '#fff5eb',
+    'orange-lg': '#fa8231',
 
   'yellow-darkest': '#453411',
   'yellow-darker': '#684f1d',
@@ -170,7 +171,7 @@ module.exports = {
     'sm': '576px',
     'md': '768px',
     'lg': '992px',
-    'xl': '1200px',
+    'xl': '1340px',
   },
 
 
@@ -194,6 +195,10 @@ module.exports = {
 
   fonts: {
     'sans': [
+      'Roboto',
+        'sans-serif'
+    ],
+    'system': [
       'system-ui',
       'BlinkMacSystemFont',
       '-apple-system',
@@ -254,11 +259,11 @@ module.exports = {
     'sm': '.875rem',    // 14px
     'base': '1rem',     // 16px
     'lg': '1.125rem',   // 18px
-    'xl': '1.25rem',    // 20px
+    'xl': '1.3125rem',    // 21px
     '2xl': '1.5rem',    // 24px
     '3xl': '1.875rem',  // 30px
-    '4xl': '2.25rem',   // 36px
-    '5xl': '3rem',      // 48px
+    '4xl': '3.75rem',   // 36px
+    '5xl': '5rem',      // 48px
   },
 
 
@@ -596,13 +601,14 @@ module.exports = {
   maxWidth: {
     'xs': '20rem',
     'sm': '30rem',
-    'md': '40rem',
+    'md': '34rem',
     'lg': '50rem',
     'xl': '60rem',
     '2xl': '70rem',
     '3xl': '80rem',
     '4xl': '90rem',
     '5xl': '100rem',
+      'spacing': '90%',
     'full': '100%',
   },
 
