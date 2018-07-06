@@ -52,7 +52,7 @@
   "scripts": {
     "size": "size-limit",
     "precommit": "lint-staged",
-    "build": "webpack --mode=production --progress --hide-modules",
+    "build": "webpack --mode=production --progress --hide-modules --env.NODE_ENV=production",
     "dev": "webpack --mode=development --progress --hide-modules",
     "watch": "npm run dev -- --watch"
   },

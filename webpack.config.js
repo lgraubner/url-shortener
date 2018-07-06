@@ -69,24 +69,29 @@ const webpackConfig = {
   ]
 }
 
-if (process.env.NODE_ENV === 'production') {
-  webpackConfig.plugins = [
-    ...webpackConfig.plugins,
-    new PurgeCSSPlugin({
-      paths: glob.sync([
-        path.join(__dirname, 'resources/views/**/*.blade.php')
-      ]),
-      extractors: [
-        {
-          extractor: TailwindExtractor,
-          extensions: ['html', 'js', 'php']
+module.exports = (env, options) => {
+  if (options.mode === 'production') {
+    webpackConfig.plugins = [
+      ...webpackConfig.plugins,
+      new PurgeCSSPlugin({
+        paths: glob.sync([
+          path.join(__dirname, 'resources/views/**/*.blade.php')
+        ]),
+        extractors: [
+          {
+            extractor: TailwindExtractor,
+            extensions: ['html', 'js', 'php']
+          }
+        ]
+      }),
+      new OptimizeCssAssetsPlugin({
+        cssProcessorOptions: {
+          safe: true,
+          discardComments: { removeAll: true }
         }
-      ]
-    }),
-    new OptimizeCssAssetsPlugin({
-      cssProcessorOptions: { safe: true, discardComments: { removeAll: true } }
-    })
-  ]
-}
+      })
+    ]
+  }
 
-module.exports = webpackConfig
+  return webpackConfig
+}
