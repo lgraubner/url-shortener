@@ -20,14 +20,16 @@
 @section('content')
     <div class="my-12 md:my-24">
         @if($is_safe === false)
-            <div class="warning max-w-md shadow bg-red-lighter text-red font-bold rounded m-auto mb-5 py-3 px-5">
-                This link has been flagged as redirecting to malicious content.
+            <div class="warning max-w-md shadow bg-red-lighter text-red rounded m-auto mb-5 px-5">
+              <div class="bg-no-repeat bg-left bg-center bg-22 py-3 pl-8" style="background-image: url('/img/exclamation-outline.svg');">
+                  This link has been flagged as redirecting to malicious content.
+              </div>
             </div>
         @endif
         <div class="box max-w-md shadow-lg rounded m-auto bg-white overflow-hidden">
-            <div class="chart bg-orange-lg" style="min-height:180px;">
-                <div class="chart__label text-lg pt-5 pl-5 text-white absolute">
-                    <span class="chart__value">{{ $clickCount }}</span>
+            <div class="chart bg-orange" style="min-height:180px;">
+                <div class="chart__label text-lg pt-5 pl-5 text-orange-lighter absolute">
+                    <span class="chart__value block text-3xl leading-none text-white">{{ $clickCount }}</span>
                     Clicks
                 </div>
                 <svg id="chart" style="margin-bottom:-5px;" class="mt-20"></svg>
@@ -50,9 +52,8 @@
 @endsection
 
 @section('scripts')
-    <script src="https://d3js.org/d3.v5.min.js"></script>
     <script>
         const __lgim_clicks = @json($clicks);
     </script>
-    <script src="/app.js"></script>
+    <script src="{{ mix('/dist/app.js') }}"></script>
 @endsection

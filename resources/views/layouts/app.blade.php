@@ -7,7 +7,7 @@
         <title>@yield('title')</title>
 
         <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-        <link href="/app.css" rel="stylesheet" />
+        <link href="{{ mix('/dist/app.css') }}" rel="stylesheet" />
 
         @section('head')
 

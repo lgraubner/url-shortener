@@ -14,16 +14,10 @@ class DetailsController extends Controller
 
         $clicks = $link->clicks()->where('created_at', '>=', Carbon::today()->subDays(21)->toDateString())
             ->get()->groupBy(function ($date) {
-            return Carbon::parse($date->created_at)->format('d-m-Y');
+            return Carbon::parse($date->created_at)->format('Y-m-d');
         })->map(function ($item, $key) {
-            return [
-                'clicks' => collect($item)->count(),
-                'value' => $key ?: 'direct',
-            ];
-        })->reduce(function ($carry, $item) {
-            array_push($carry, $item);
-            return $carry;
-        }, []);
+            return collect($item)->count();
+        });
 
         return view('details', [
             'long_url' => $link->long_url,
