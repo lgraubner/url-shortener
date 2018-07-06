@@ -85,12 +85,12 @@
   },
   "size-limit": [
     {
-      "path": "public/dist/app.js",
+      "path": "public/dist/app_*.js",
       "webpack": "false",
       "limit": "35 KB"
     },
     {
-      "path": "public/dist/app.css",
+      "path": "public/dist/app_*.css",
       "webpack": "false",
       "limit": "10 KB"
     }
