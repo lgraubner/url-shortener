@@ -58,17 +58,17 @@ let colors = {
   'red-darkest': '#3b0d0c',
   'red-darker': '#621b18',
   'red-dark': '#cc1f1a',
-  red: '#d0021b',
+  red: '#e3342f',
   'red-light': '#ef5753',
-  'red-lighter': '#ffeaea',
+  'red-lighter': '#f9acaa',
   'red-lightest': '#fcebea',
 
   'orange-darkest': '#462a16',
   'orange-darker': '#613b1f',
   'orange-dark': '#de751f',
-  orange: '#fa8231',
+  orange: '#f6993f',
   'orange-light': '#faad63',
-  'orange-lighter': '#ffdec8',
+  'orange-lighter': '#fcd9b6',
   'orange-lightest': '#fff5eb',
 
   'yellow-darkest': '#453411',
@@ -167,7 +167,7 @@ module.exports = {
     sm: '576px',
     md: '768px',
     lg: '992px',
-    xl: '1340px'
+    xl: '1200px'
   },
 
   /*
@@ -189,8 +189,7 @@ module.exports = {
   */
 
   fonts: {
-    sans: ['Roboto', 'sans-serif'],
-    system: [
+    sans: [
       'system-ui',
       'BlinkMacSystemFont',
       '-apple-system',
@@ -250,11 +249,11 @@ module.exports = {
     sm: '.875rem', // 14px
     base: '1rem', // 16px
     lg: '1.125rem', // 18px
-    xl: '1.3125rem', // 21px
+    xl: '1.25rem', // 20px
     '2xl': '1.5rem', // 24px
     '3xl': '1.875rem', // 30px
-    '4xl': '3.75rem', // 36px
-    '5xl': '5rem' // 48px
+    '4xl': '2.25rem', // 36px
+    '5xl': '3rem' // 48px
   },
 
   /*
@@ -366,8 +365,7 @@ module.exports = {
   backgroundSize: {
     auto: 'auto',
     cover: 'cover',
-    contain: 'contain',
-    22: '22px'
+    contain: 'contain'
   },
 
   /*
@@ -579,14 +577,13 @@ module.exports = {
   maxWidth: {
     xs: '20rem',
     sm: '30rem',
-    md: '34rem',
+    md: '40rem',
     lg: '50rem',
     xl: '60rem',
     '2xl': '70rem',
     '3xl': '80rem',
     '4xl': '90rem',
     '5xl': '100rem',
-    spacing: '90%',
     full: '100%'
   },
 
@@ -870,6 +867,7 @@ module.exports = {
     shadows: ['responsive', 'hover', 'focus'],
     svgFill: [],
     svgStroke: [],
+    tableLayout: ['responsive'],
     textAlign: ['responsive'],
     textColors: ['responsive', 'hover', 'focus'],
     textSizes: ['responsive'],
@@ -897,12 +895,7 @@ module.exports = {
   |
   */
 
-  plugins: [
-    require('tailwindcss/plugins/container')({
-      // center: true,
-      // padding: '1rem',
-    })
-  ],
+  plugins: [],
 
   /*
   |-----------------------------------------------------------------------------

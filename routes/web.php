@@ -11,10 +11,4 @@
 |
 */
 
-Route::get('/', function () {
-    return redirect()->away('https://larsgraubner.com', 301);
-});
-
-Route::get('/{hash}+', 'DetailsController');
-
 Route::get('/{hash}', 'RedirectController');
