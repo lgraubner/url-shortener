@@ -1,12 +1,42 @@
 # Laraval URL shortener
 
+This package is a fully fledged url shortener. At the moment it provides a REST API only. The API is secured with JWT. There are (kinda unstyled) views for redirect events (not found, insecure).
+
 ## Routes
+
+```
++-------------+-----------+-------------------------+---------------+---------------------------------------------------------------------------+--------------+
+| Domain      | Method    | URI                     | Name          | Action                                                                    | Middleware   |
++-------------+-----------+-------------------------+---------------+---------------------------------------------------------------------------+--------------+
+| api.lg.test | GET|HEAD  | health                  |               | App\Http\Controllers\HealthController                                     | api          |
+|             | POST      | oauth/token             |               | Laravel\Passport\Http\Controllers\AccessTokenController@issueToken        | throttle     |
+|             | POST      | oauth/token/refresh     |               | Laravel\Passport\Http\Controllers\TransientTokenController@refresh        | web,auth     |
+|             | GET|HEAD  | oauth/tokens            |               | Laravel\Passport\Http\Controllers\AuthorizedAccessTokenController@forUser | web,auth     |
+|             | DELETE    | oauth/tokens/{token_id} |               | Laravel\Passport\Http\Controllers\AuthorizedAccessTokenController@destroy | web,auth     |
+| api.lg.test | GET|HEAD  | v1/links                | links.index   | App\Http\Controllers\LinkController@index                                 | api,auth:api |
+| api.lg.test | POST      | v1/links                | links.store   | App\Http\Controllers\LinkController@store                                 | api,auth:api |
+| api.lg.test | GET|HEAD  | v1/links/{id}/clicks    |               | App\Http\Controllers\MetricsController@clicks                             | api,auth:api |
+| api.lg.test | GET|HEAD  | v1/links/{id}/info      |               | App\Http\Controllers\LinkInfoController                                   | api,auth:api |
+| api.lg.test | GET|HEAD  | v1/links/{id}/referrers |               | App\Http\Controllers\MetricsController@referrers                          | api,auth:api |
+| api.lg.test | PUT|PATCH | v1/links/{link}         | links.update  | App\Http\Controllers\LinkController@update                                | api,auth:api |
+| api.lg.test | DELETE    | v1/links/{link}         | links.destroy | App\Http\Controllers\LinkController@destroy                               | api,auth:api |
+| api.lg.test | GET|HEAD  | v1/links/{link}         | links.show    | App\Http\Controllers\LinkController@show                                  | api,auth:api |
+| api.lg.test | POST      | v1/login                |               | App\Http\Controllers\AuthController@login                                 | api          |
+| api.lg.test | POST      | v1/logout               |               | App\Http\Controllers\AuthController@logout                                | api,auth:api |
+| api.lg.test | GET|HEAD  | v1/me                   |               | App\Http\Controllers\AuthController@me                                    | api,auth:api |
+| api.lg.test | POST      | v1/register             |               | App\Http\Controllers\AuthController@register                              | api          |
+|             | GET|HEAD  | {hash}                  |               | App\Http\Controllers\RedirectController                                   | web          |
++-------------+-----------+-------------------------+---------------+---------------------------------------------------------------------------+--------------+
+```
 
 ## Features
 
-Every time a shortened link is visited and redirects.
-
 ### Statistic
+
+Every time a shortened link is visited and redirects it collects some statistics. This statistics include the following data:
+
+- referrer
+- date
 
 ### Safe browsing check
 
